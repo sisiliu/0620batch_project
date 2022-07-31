@@ -1,13 +1,18 @@
+import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ list, setList }) => {
-  const userList = list.map((item, index) => {
+const TodoList = () => {
+  const list = useSelector((state) => {
+    return state;
+  });
+  // console.log(list);
+  const userList = list.map(({ content, isCompleted }, index) => {
+    // console.log(content);
     return (
       <TodoItem
-        key={`${index}-${item}`}
-        item={item}
-        list={list}
-        setList={setList}
+        key={`${index}-${content}`}
+        content={content}
+        isCompleted={isCompleted}
         index={index}
       />
     );

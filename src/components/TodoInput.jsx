@@ -1,7 +1,9 @@
 import { useState, useRef } from "react";
-
-const TodoInput = ({ list, setList }) => {
+import { useDispatch } from "react-redux";
+import { addTodo } from "../actions";
+const TodoInput = () => {
   const [input, setInput] = useState("");
+  const dispatch = useDispatch();
   const textInput = useRef(null);
 
   const focusInput = () => {
@@ -13,7 +15,9 @@ const TodoInput = ({ list, setList }) => {
       return;
     }
 
-    setList([...list, input]);
+    // setList([...list, input]);
+    console.log(input);
+    addTodo(dispatch)(input);
     setInput("");
   };
 

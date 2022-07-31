@@ -1,24 +1,24 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { delTodo, modTodo } from "../actions";
 
-const TodoItem = ({ item, list, setList, index }) => {
-  const [completed, setCompleted] = useState(false);
-  const del = (index) => {
-    setList([...list.slice(0, index), ...list.slice(index + 1)]);
-  };
+const TodoItem = ({ content, isCompleted, index }) => {
+  const dispatch = useDispatch();
+  // const del = (index) => {
+  // setList([...list.slice(0, index), ...list.slice(index + 1)]);
+
+  // };
 
   return (
     <li>
       <span
-        style={{ textDecoration: completed ? "line-through" : "none" }}
-        onDoubleClick={() => {
-          setCompleted(!completed);
-        }}
+        style={{ textDecoration: isCompleted ? "line-through" : "none" }}
+        onDoubleClick={() => modTodo(dispatch)(index)}
       >
-        {item}
+        {content}
       </span>
       <button
         onClick={() => {
-          del(index);
+          delTodo(dispatch)(index);
         }}
       >
         Delete
