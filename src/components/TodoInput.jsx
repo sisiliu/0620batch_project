@@ -16,7 +16,7 @@ const TodoInput = () => {
     }
 
     // setList([...list, input]);
-    console.log(input);
+    // console.log(input);
     addTodo(dispatch)(input);
     setInput("");
   };

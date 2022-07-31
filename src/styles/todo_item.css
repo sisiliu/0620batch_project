@@ -1,0 +1,10 @@
+.todo_item {
+  cursor: pointer;
+  user-select: none;
+}
+.is_not_completed {
+  text-decoration: none;
+}
+.is_completed {
+  text-decoration: line-through;
+}

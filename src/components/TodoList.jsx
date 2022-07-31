@@ -17,6 +17,6 @@ const TodoList = () => {
       />
     );
   });
-  return <ul>{userList}</ul>;
+  return <ol>{userList}</ol>;
 };
 export default TodoList;

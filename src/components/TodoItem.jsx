@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { delTodo, modTodo } from "../actions";
-
+import "../styles/todo_item.css";
 const TodoItem = ({ content, isCompleted, index }) => {
   const dispatch = useDispatch();
   // const del = (index) => {
@@ -9,9 +9,9 @@ const TodoItem = ({ content, isCompleted, index }) => {
   // };
 
   return (
-    <li>
+    <li className="todo_item">
       <span
-        style={{ textDecoration: isCompleted ? "line-through" : "none" }}
+        className={isCompleted ? "is_completed" : "is_not_completed"}
         onDoubleClick={() => modTodo(dispatch)(index)}
       >
         {content}
